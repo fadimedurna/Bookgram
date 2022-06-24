@@ -1,0 +1,15 @@
+.feed {
+  flex: 5.5;
+  background: linear-gradient(to left, #cc6cfa, #6a67f7);
+}
+
+.feedWrapper {
+  padding: 20px;
+}
+.postsWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 60px;
+  padding-top: 30px;
+}
