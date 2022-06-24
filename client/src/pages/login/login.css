@@ -1,0 +1,66 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to left bottom, #fa978d, #e35c89, #b642e3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#app {
+  background-color: #373656;
+  overflow: hidden;
+  border-radius: 15px;
+  margin-top: 50px;
+  padding: 16px;
+}
+#app h1 {
+  color: #e9607b;
+  text-align: center;
+  margin: 0;
+  padding: 75px 0 0 0;
+  letter-spacing: 1px;
+  font-size: 3rem;
+}
+#app form {
+  margin-top: 30px;
+}
+#app form input {
+  display: block;
+  width: 65%;
+  margin: 15px auto;
+  background-color: #4c4b71;
+  border: none;
+  color: #8080a8;
+  padding: 15px 30px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+#app form input::placeholder {
+  color: #8080a8;
+}
+#app form .buttons {
+  display: flex;
+  width: 65%;
+  margin: auto;
+  justify-content: space-between;
+}
+#app form .buttons .button {
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+}
+#app form .buttons .button.reset {
+  margin-left: 15px;
+  background: linear-gradient(to right, #e9617b, #fb9387);
+}
+#app form .buttons .button.submit {
+  margin-right: 15px;
+  background: linear-gradient(to right, #cc6cfa, #6a67f7);
+}
+.loginDisplay {
+  margin-top: 150px;
+}
