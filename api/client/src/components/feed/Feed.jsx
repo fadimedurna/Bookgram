@@ -2,14 +2,14 @@ import Post from "../post/Post";
 import Share from "../share/Share";
 import "./feed.css";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { axiosInstance } from "../../config";
 
 export default function Feed() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get("posts/timeline/62b55aaa8a097929a7b3ab1a");
+      const res = await axiosInstance.get("posts/timeline/62b55aaa8a097929a7b3ab1a");
       setPosts(res.data);
     };
     fetchPosts();

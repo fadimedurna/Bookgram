@@ -4,7 +4,7 @@ import CommentIcon from "@mui/icons-material/Comment";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { axiosInstance } from "../../config";
 
 export default function Post({ post }) {
   const [rank, setRank] = useState(post.rank.length);
@@ -16,7 +16,7 @@ export default function Post({ post }) {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`users/${post.userId}`);
+      const res = await axiosInstance.get(`users/${post.userId}`);
       setUser(res.data);
     };
     fetchUser();
