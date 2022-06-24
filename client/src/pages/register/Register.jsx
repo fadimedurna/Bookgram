@@ -14,7 +14,9 @@ export default function Register() {
             <Link to='/login'>
               <button className='loginButton'>Log In</button>
             </Link>
-            <button className='moreButton'>Discover</button>
+            <Link to='/'>
+              <button className='moreButton'>Discover</button>
+            </Link>
           </div>
         </div>
         <div className='loginForm' id='app'>

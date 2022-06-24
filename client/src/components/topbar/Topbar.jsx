@@ -7,7 +7,7 @@ export default function Topbar() {
   return (
     <div className='topbarContainer'>
       <div className='topbarLeft'>
-        <Link to='/feed'>
+        <Link to='/'>
           <span className='logo'>Bookgram</span>
         </Link>
       </div>
@@ -19,8 +19,13 @@ export default function Topbar() {
       </div>
       <div className='topbarRight'>
         <div className='topbarLinks'>
-          <span className='topbarLink'>Feed</span>
-          <span className='topbarLink'>My Books</span>
+          <Link to='/'>
+            <span className='topbarLink'>Feed</span>
+          </Link>
+          <Link to='/profile/:username'>
+            <span className='topbarLink'>My Books</span>
+          </Link>
+
           <span className='topbarLink'>E-Books</span>
         </div>
         <div className='topbarIcons'>
@@ -29,7 +34,9 @@ export default function Topbar() {
             <span className='topbarIconBadge'>5</span>
           </div>
         </div>
-        <img src='/assets/person/1.jpeg' alt='' className='topbarImg' />
+        <Link to='/profile/:username'>
+          <img src='/assets/person/1.jpeg' alt='' className='topbarImg' />
+        </Link>
       </div>
     </div>
   );

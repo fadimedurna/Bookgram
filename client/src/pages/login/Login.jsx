@@ -11,8 +11,13 @@ export default function Login() {
             and ideas to all around the world
           </span>
           <div className='buttons'>
-            <button className='loginButton'>Register</button>
-            <button className='moreButton'>Discover</button>
+            <Link to='/register'>
+              {" "}
+              <button className='loginButton'>Register</button>
+            </Link>
+            <Link to='/'>
+              <button className='moreButton'>Discover</button>
+            </Link>
           </div>
         </div>
         <div className='loginForm' id='app'>
@@ -21,7 +26,7 @@ export default function Login() {
             <input type='email' name='email' placeholder='Email' />
             <input type='password' name='password' placeholder='Password' />
             <div className='buttons'>
-              <Link to='/feed'>
+              <Link to='/'>
                 <button className='loginButton'>Log-in</button>
               </Link>
               <button className='moreButton'>Reset</button>

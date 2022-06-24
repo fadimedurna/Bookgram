@@ -9,7 +9,7 @@ export default function Feed() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = axios.get("posts/timeline/62b55aaa8a097929a7b3ab1a");
+      const res = await axios.get("posts/timeline/62b55aaa8a097929a7b3ab1a");
       setPosts(res.data);
     };
     fetchPosts();

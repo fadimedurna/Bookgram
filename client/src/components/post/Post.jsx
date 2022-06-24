@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function Post({ post }) {
-  const [rank, setRank] = useState(post.rank);
+  const [rank, setRank] = useState(post.rank.length);
   const [isRanked, setIsRanked] = useState(false);
   const [object, setObject] = useState(post.object);
   const [isObjected, setIsObjected] = useState(false);
@@ -16,7 +16,7 @@ export default function Post({ post }) {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/users?userId=${post.userId}`);
+      const res = await axios.get(`users/${post.userId}`);
       setUser(res.data);
     };
     fetchUser();
@@ -53,7 +53,7 @@ export default function Post({ post }) {
         </div>
         <div className='postCenter'>
           <span className='postText'>{post?.desc}</span>
-          <img className='postImg' src={PF + post.photo} alt='' />
+          <img className='postImg' src={PF + post.img} alt='' />
         </div>
         <div className='postBottom'>
           <div className='postBottomLeft'>
