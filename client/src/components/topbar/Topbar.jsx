@@ -1,12 +1,15 @@
 import "./topbar.css";
 import SearchIcon from "@mui/icons-material/Search";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import { Link } from "react-router-dom";
 
 export default function Topbar() {
   return (
     <div className='topbarContainer'>
       <div className='topbarLeft'>
-        <span className='logo'>Bookgram</span>
+        <Link to='/feed'>
+          <span className='logo'>Bookgram</span>
+        </Link>
       </div>
       <div className='topbarCenter'>
         <div className='searchbar'>

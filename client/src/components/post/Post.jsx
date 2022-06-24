@@ -3,23 +3,32 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import CommentIcon from "@mui/icons-material/Comment";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import { Users } from "../../dummyData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Post({ post }) {
-  //rank
   const [rank, setRank] = useState(post.rank);
   const [isRanked, setIsRanked] = useState(false);
+  const [object, setObject] = useState(post.object);
+  const [isObjected, setIsObjected] = useState(false);
+  const [user, setUser] = useState({});
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
+  useEffect(() => {
+    const fetchUser = async () => {
+      const res = await axios.get(`/users?userId=${post.userId}`);
+      setUser(res.data);
+    };
+    fetchUser();
+  }, [post.userId]);
+
+  //rank
   const rankHandler = () => {
     setRank(isRanked ? rank - 1 : rank + 1);
     setIsRanked(!isRanked);
   };
 
   //object
-  const [object, setObject] = useState(post.object);
-  const [isObjected, setIsObjected] = useState(false);
-
   const objectHandler = () => {
     setObject(isObjected ? object - 1 : object + 1);
     setIsObjected(!isObjected);
@@ -32,12 +41,10 @@ export default function Post({ post }) {
           <div className='postTopLeft'>
             <img
               className='postProfileImg'
-              src={Users.filter((u) => u.id === post?.userId)[0].profilePicture}
+              src={user.profilePicture || PF + "person/noAvatar.png"}
               alt='img'
             />
-            <span className='postUserName'>
-              {Users.filter((u) => u.id === post?.userId)[0].username}
-            </span>
+            <span className='postUserName'>{user.username}</span>
             <span className='postDate'>{post.date}</span>
           </div>
           <div className='postTopRight'>
@@ -46,7 +53,7 @@ export default function Post({ post }) {
         </div>
         <div className='postCenter'>
           <span className='postText'>{post?.desc}</span>
-          <img className='postImg' src={post.photo} alt='' />
+          <img className='postImg' src={PF + post.photo} alt='' />
         </div>
         <div className='postBottom'>
           <div className='postBottomLeft'>

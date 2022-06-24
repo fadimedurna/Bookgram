@@ -3,8 +3,11 @@ import Topbar from "../../components/topbar/Topbar";
 import Stats from "../../components/stats/stats";
 import BookList from "../../components/bookLists/bookList";
 import Posts from "../../components/posts/posts";
+import { Users } from "../../dummyData";
 
 export default function Profile() {
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
   return (
     <>
       <Topbar />
@@ -19,7 +22,7 @@ export default function Profile() {
               />
               <img
                 className='profileUserImg'
-                src='https://images-cdn.9gag.com/photo/amP186j_700b.jpg'
+                src={`${PF}person/7.jpeg`}
                 alt=''
               />
             </div>
